@@ -4,6 +4,11 @@
 
 using namespace std;
 
+Display::Display(){
+	initscr();			/* Start curses mode 		  */
+	getmaxyx(stdscr,consoleXSize, consoleYSize);
+}
+
 void Display::DrawHorzLine(int y0, char fillChar){
 	int row, col;	
 	getmaxyx(stdscr,row,col); //should be but in a contructor and added as a class varable
@@ -51,4 +56,6 @@ void Display::DrawLine(int x0, int y0, int x1, int y1) {
   
 }
 
-
+Display::~Display(){
+	endwin();			/* End curses mode		  */   	
+}
