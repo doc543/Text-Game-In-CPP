@@ -7,22 +7,16 @@ using namespace std;
 
 int main()
 {
-   initscr();			/* Start curses mode 		  */
-	
    Display disp;
    
-   int row, col;
-   getmaxyx(stdscr,row,col);
-    
-   printw(to_string(row).c_str());
-   printw(" ");
-   printw(to_string(col).c_str());
-   
-   disp.DrawHorzLine(2, '~');
-    
+   disp.DrawHorzLine(10, '~');
+   disp.DrawVertLine(10, 'I');
+   disp.DrawBorder('x');
+
+	
+	
    refresh();			/* Print it on to the real screen */
-    getch();			/* Wait for user input */
-	endwin();			/* End curses mode		  */   
-   
+   getch();			/* Wait for user input */
+  
    return 0;
 }

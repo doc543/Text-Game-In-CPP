@@ -10,28 +10,28 @@ Display::Display(){
 }
 
 void Display::DrawHorzLine(int y0, char fillChar){
-	int row, col;	
-	getmaxyx(stdscr,row,col); //should be but in a contructor and added as a class varable
-	
-	for (int i = 0; i > col; i++)
-		mvaddch(row,col,fillChar);
+
+	for (int i = 0; i < consoleYSize; i++)
+		mvaddch(y0, i,fillChar);
+}
+
+void Display::DrawVertLine(int x0, char fillChar){
+
+	for (int i = 0; i < consoleXSize; i++)
+		mvaddch(i, x0,fillChar);
 }
 
 
 void Display::DrawBox(int x0, int y0, int x1, int y1, char charToUse, bool fill){
-    /*
-	cout << "Drawing Box with " << charToUse << " at " 
-         << x0 << "," << y0 << " and "
-         << x1 << "," << y1;
-    if (!fill)
-        cout << " no";
-    cout << " fill" << endl;
-	*/
+    
 }
 
 
 void Display::Display::DrawBorder(char charToUse){
-    DrawBox(0, 0, 85, 20, charToUse, true);
+    DrawVertLine(0, '|');
+	DrawVertLine(consoleYSize -1, '|');
+	DrawHorzLine(0, '-');
+	DrawHorzLine(consoleXSize -1, '-');
 }
 
 void Display::DrawLine(int x0, int y0, int x1, int y1) {
