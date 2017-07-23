@@ -9,10 +9,13 @@ int main()
 {
    Display disp;
    
-   disp.DrawHorzLine(10, '~');
-   disp.DrawVertLine(10, 'I');
-   disp.DrawBorder('x');
-
+   disp.drawHorzLine(10, '-');
+   disp.drawVertLine(10, '|');
+   disp.drawBorder('x');
+   
+   
+   //string str;
+   //str = disp.getInput(3, 5);
 	
 	
    refresh();			/* Print it on to the real screen */
