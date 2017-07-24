@@ -10,15 +10,16 @@ class Display {
 		int consoleYSize;
     public:
 		Display();
+		~Display();
 		
+		//getters
 		std::string getInput(int x0, int y0);
 		
-		
-        void drawBorder(char borderChar);
+		//setters
+		void printBody(int x0, int y0, std::string body);
+		void drawBorder(char borderChar);
         void drawHorzLine(int y0, char fillChar);
 		void drawVertLine(int x0, char fillChar);
-				
-		~Display();
 };
 
 #endif

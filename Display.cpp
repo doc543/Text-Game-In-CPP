@@ -8,12 +8,20 @@ using namespace std;
 
 Display::Display(){
 	initscr();			/* Start curses mode 		  */
+	echo();
 	getmaxyx(stdscr,consoleXSize, consoleYSize);
 }
 
 
 string Display::getInput(int x0, int y0){
-	//getstr(); 
+	char cStr[255];
+	getstr(cStr);
+	string str(cStr);
+	return str;	
+}
+
+void Display::printBody(int x0, int y0, string body){
+	mvprintw(x0, y0, body.c_str());
 }
 
 void Display::drawHorzLine(int y0, char fillChar){
