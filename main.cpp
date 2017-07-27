@@ -1,10 +1,15 @@
 #include <iostream>
 #include <curses.h> //MUST ADD "-lncurses" TO GCC TO COMPILE
 #include "Display.h"
-#include <string>
+#include <string> // do I need this if I already added diaply.h that has the sting class in it?
 
 using namespace std;
 
+/*******************************************************	
+/	main
+/	should just call a "Game" class. Curently just used
+/   for testing methods 
+*******************************************************/
 int main()
 {
    Display disp;
@@ -17,10 +22,9 @@ int main()
    
    string str;
    str = disp.getInput(3, 5);
-   str = disp.getInput(4, 6);
    disp.printBody(7, 6, str);
 	
-   refresh();			/* Print it on to the real screen */
+   disp.printBody(8, 5, "GIT GUD");
    getch();			/* Wait for user input */
   
    return 0;
