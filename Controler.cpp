@@ -1,21 +1,37 @@
-string PhraseInput(string input){
+#include "Controler.h"
 
-    //TODO: get first word of string
-    string firstWord;
-    string secondWord;
+using namespace std;
 
-    switch(input){
-        case "move" :
-            if (changeDirection(secondWord))
+std::string Controler::phraseInput(std::string input){
+
+    //TODO: make functionthat gets first word of a string
+    std::string firstWord;
+    std::string secondWord;
+
+    firstWord = input;
+
+    if (firstWord == "move") {
+        if (changeDirection(secondWord))
             return "You cannot go there";
-        case "get" :
-            if (moveItemToInventory(secondWord))
-            retrun "You cannot get that";
-        case "use"
-            if (activateInteractable(string interactabeName))
-            retrun "You cannot do that";
+    } else if (firstWord == "get") {
+        if (moveItemToInventory(secondWord))
+            return "You cannot get that";
+    } else if (firstWord == "use") {
+        if (activateInteractable(secondWord))
+            return "You cannot do that";
+    } else {
+        return "Wut?";
     }
-    return "";
-    }
+}
 
+bool Controler::moveItemToInventory(std::string interactableName){
+  return true;
+}
+
+bool Controler::changeDirection(std::string direction){
+  return true;
+}
+
+bool Controler::activateInteractable(std::string interactabeName){
+  return true;
 }
