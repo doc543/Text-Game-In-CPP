@@ -12,21 +12,23 @@
 class Display {
     private:
         int consoleXSize;
-		    int consoleYSize;
+		int consoleYSize;
     public:
-		    Display();
-		    ~Display();
+		Display();
+		~Display();
 
-    //functions
+    	//functions
 		void refresh();
+		std::string getInput(int x0, int y0);
 
 		//getters
-		std::string getInput(int x0, int y0);
+		int getConsoleXSize() {return consoleXSize;};
+		int getConsoleYSize() {return consoleYSize;};
 
 		//setters
 		void printBody(int x0, int y0, std::string body);
 		void drawBorder(char borderChar);
-    void drawHorzLine(int y0, char fillChar);
+    	void drawHorzLine(int y0, char fillChar);
 		void drawVertLine(int x0, char fillChar);
 };
 

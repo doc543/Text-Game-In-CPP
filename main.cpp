@@ -16,20 +16,23 @@ int main()
 {
     Display disp;
     Controler game;
+    string str = "";
+    
+    //begeining of game
+    disp.drawBorder('+');
+    disp.printBody(3, 2, "Welcome to game. It is good game!");
+    disp.printBody(3, 4, "Console X size is");
+    disp.printBody(3, 5, to_string( disp.getConsoleXSize() ));
+    disp.printBody(3, 6, "Console Y size is");
+    disp.printBody(3, 7, to_string( disp.getConsoleYSize() ));
 
-    disp.drawHorzLine(5, '-');
-    disp.drawVertLine(10, '|');
-    disp.drawBorder('x');
-    disp.printBody(2, 3, "Halla halla get dalla");
-
-    string str;
-    str = disp.getInput(3, 5);
-    disp.printBody(7, 6, str);
-
-    disp.printBody(6, 9, game.phraseInput(str));
-
-    disp.printBody(8, 5, "GIT GUD");
-    getch();			/* Wait for user input */
-
+    while (str != "exit"){ //maingame loop
+        disp.drawHorzLine(disp.getConsoleYSize() - 5, '-');
+        disp.drawBorder('+');
+        
+        str = disp.getInput(3, disp.getConsoleYSize() - 3);
+        disp.refresh();
+        disp.printBody(3, disp.getConsoleYSize() - 7, str);
+    }
     return 0;
 }

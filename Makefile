@@ -1,2 +1,2 @@
 gamemake: main.cpp Display.cpp Controler.cpp
-	g++ -o testgame main.cpp Display.cpp Controler.cpp -lncurses
+	g++ -std=c++11 -o testgame main.cpp Display.cpp Controler.cpp -lncurses
