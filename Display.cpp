@@ -41,6 +41,7 @@ string Display::getInput(int x0, int y0){
 void Display::refresh(){
 	werase(stdscr);
 	//wrefresh(stdscr);
+	getmaxyx(stdscr, consoleYSize, consoleXSize);
 }
 
 /*******************************************************
@@ -63,9 +64,15 @@ void Display::printBody(int x0, int y0, string body){
 /	Simply draws a horizontal line all the way across the	screen.
 *******************************************************/
 void Display::drawHorzLine(int y0, char fillChar){
-
-	for (int i = 0; i < consoleXSize; i++)
-		mvaddch(y0, i, fillChar);
+	for (int i = 0; i < consoleXSize; i++) {
+		move(y0, i);
+		if (i == 0)
+			addch(ACS_LTEE);
+		else if (i == consoleXSize)
+			addch(ACS_RTEE);
+		else
+			addch(ACS_HLINE);
+	}
 }
 
 /*******************************************************
@@ -74,8 +81,15 @@ void Display::drawHorzLine(int y0, char fillChar){
 *******************************************************/
 void Display::drawVertLine(int x0, char fillChar){
 
-	for (int i = 0; i < consoleYSize; i++)
-		mvaddch(i, x0, fillChar);
+	for (int i = 0; i < consoleYSize; i++){
+		move(y0, i);
+		if (i == 0)
+			addch(ACS_BTEE);
+		else if (i == consoleYSize)
+			addch(ACS_VTEE);
+		else
+			addch(ACS_VLINE);
+	}
 }
 
 /*******************************************************
@@ -84,10 +98,11 @@ void Display::drawVertLine(int x0, char fillChar){
 /function i need to chefck out
 *******************************************************/
 void Display::drawBorder(char charToUse){
-    drawVertLine(0, '|');
-	drawVertLine(consoleXSize -1, '|');
-	drawHorzLine(0, '-');
-	drawHorzLine(consoleYSize -1, '-');
+	int border(0, 0, 0, 0, 0, 0, 0, 0);
+    //drawVertLine(0, '|');
+	//drawVertLine(consoleXSize -1, '|');
+	//drawHorzLine(0, '-');
+	//drawHorzLine(consoleYSize -1, '-');
 }
 
 /*******************************************************
