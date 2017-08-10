@@ -1,6 +1,6 @@
 #include <iostream>
 #include <curses.h> //MUST ADD "-lncurses" TO GCC TO COMPILE
-#include <string> // do I need this if I already added diaply.h that has the sting class in it?
+#include <string>
 
 #include "Display.h"
 #include "Controler.h"
@@ -31,7 +31,9 @@ int main()
         disp.drawBorder('+');
         
         str = disp.getInput(3, disp.getConsoleYSize() - 3);
+        game.phraseInput(str);
         disp.refresh();
+        disp.printBody(3, 2, game.phraseInput(str));
         disp.printBody(3, disp.getConsoleYSize() - 7, str);
     }
     return 0;
