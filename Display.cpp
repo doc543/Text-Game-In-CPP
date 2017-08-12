@@ -63,12 +63,12 @@ void Display::printBody(int x0, int y0, string body){
 /	Draw horizontal line
 /	Simply draws a horizontal line all the way across the	screen.
 *******************************************************/
-void Display::drawHorzLine(int y0, char fillChar){
+void Display::drawHorzLine(int y0){
 	for (int i = 0; i < consoleXSize; i++) {
 		move(y0, i);
 		if (i == 0)
 			addch(ACS_LTEE);
-		else if (i == consoleXSize)
+		else if (i == consoleXSize - 1)
 			addch(ACS_RTEE);
 		else
 			addch(ACS_HLINE);
@@ -79,14 +79,14 @@ void Display::drawHorzLine(int y0, char fillChar){
 /	Draw vertical line
 /	Simply draws a vertical line all the way across the screen.
 *******************************************************/
-void Display::drawVertLine(int x0, char fillChar){
+void Display::drawVertLine(int x0){
 
 	for (int i = 0; i < consoleYSize; i++){
-		move(y0, i);
+		move(x0, i);
 		if (i == 0)
 			addch(ACS_BTEE);
-		else if (i == consoleYSize)
-			addch(ACS_VTEE);
+		else if (i == consoleYSize -1)
+			addch(ACS_TTEE);
 		else
 			addch(ACS_VLINE);
 	}
@@ -97,8 +97,8 @@ void Display::drawVertLine(int x0, char fillChar){
 /	draws a border around the consele window. ncurses itself has a border draw
 /function i need to chefck out
 *******************************************************/
-void Display::drawBorder(char charToUse){
-	int border(0, 0, 0, 0, 0, 0, 0, 0);
+void Display::drawBorder(){
+	border(0, 0, 0, 0, 0, 0, 0, 0);
     //drawVertLine(0, '|');
 	//drawVertLine(consoleXSize -1, '|');
 	//drawHorzLine(0, '-');

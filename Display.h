@@ -27,9 +27,9 @@ class Display {
 
 		//setters
 		void printBody(int x0, int y0, std::string body);
-		void drawBorder(char borderChar);
-    	void drawHorzLine(int y0, char fillChar);
-		void drawVertLine(int x0, char fillChar);
+		void drawBorder(void);
+    	void drawHorzLine(int y0);
+		void drawVertLine(int x0);
 };
 
 #endif

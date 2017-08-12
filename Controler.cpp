@@ -8,12 +8,19 @@ using namespace std;
 *******************************************************/
 std::string Controler::phraseInput(std::string input){
 
-    //TODO: make functionthat gets first word of a string
-    std::string firstWord;
-    std::string secondWord;
-
-    firstWord = input;//
-
+    std::string firstWord, secondWord;
+    int firstSpaceLoc;
+    
+    //gets first word of a string
+    if (input.empty()){
+        return "";
+    } else {
+        firstSpaceLoc = input.find_first_of(" ", 0);
+        firstWord = input.substr(0, firstSpaceLoc);
+        secondWord = input.substr(firstSpaceLoc + 1, input.size());
+    }
+    
+    //dictates what the word means
     if (firstWord == "move") {
         if (changeDirection(secondWord))
             return "You cannot go there";

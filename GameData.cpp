@@ -1,0 +1,7 @@
+GameData::GameData(){
+    
+}
+
+GameData::~GameData(){
+
+}

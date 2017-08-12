@@ -19,16 +19,16 @@ int main()
     string str = "";
     
     //begeining of game
-    disp.drawBorder('+');
+    disp.drawBorder();
     disp.printBody(3, 2, "Welcome to game. It is good game!");
     disp.printBody(3, 4, "Console X size is");
     disp.printBody(3, 5, to_string( disp.getConsoleXSize() ));
     disp.printBody(3, 6, "Console Y size is");
     disp.printBody(3, 7, to_string( disp.getConsoleYSize() ));
 
-    while (str != "exit"){ //maingame loop
-        disp.drawHorzLine(disp.getConsoleYSize() - 5, '-');
-        disp.drawBorder('+');
+    while (str != "exit"){ //maingame loop        
+        disp.drawBorder();
+        disp.drawHorzLine(disp.getConsoleYSize() - 5);
         
         str = disp.getInput(3, disp.getConsoleYSize() - 3);
         game.phraseInput(str);

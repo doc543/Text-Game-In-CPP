@@ -26,7 +26,8 @@ struct location{
 class GameData {
     private:
         location[255, 255];
-		    inventory interactable[255];
+		inventory interactable[255];
+		
     public:
 		    GameData();
 		    ~GameData();
