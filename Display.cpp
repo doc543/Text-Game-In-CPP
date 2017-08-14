@@ -11,8 +11,8 @@ using namespace std;
 
 /*******************************************************
 /	Display Controctor
-/	starts curses, initalizes various types. Sets the size of consele window to
-/class varables
+/	starts curses, initalizes various types. Sets the size of consele window to 
+/   class varables   
 *******************************************************/
 Display::Display(){
 	initscr();			/* Start curses mode 		  */
@@ -50,13 +50,8 @@ void Display::refresh(){
 /descriptor of the area in game
 *******************************************************/
 void Display::printBody(int x0, int y0, string body){
-	move(y0, x0);
-	printw(body.c_str());
-
-	//not sure why it has a location passed to the mvprint functuon
-	//it should be set to the top left corner of the screen
-
-	//need to add text wrap functionality
+	move(y0, x0);	
+	printToCords(x0, y0, body);
 }
 
 /*******************************************************
@@ -95,14 +90,25 @@ void Display::drawVertLine(int x0){
 /*******************************************************
 /	Draw border
 /	draws a border around the consele window. ncurses itself has a border draw
-/function i need to chefck out
+/   function i need to chefck out
 *******************************************************/
 void Display::drawBorder(){
 	border(0, 0, 0, 0, 0, 0, 0, 0);
-    //drawVertLine(0, '|');
-	//drawVertLine(consoleXSize -1, '|');
-	//drawHorzLine(0, '-');
-	//drawHorzLine(consoleYSize -1, '-');
+}
+
+/*******************************************************
+/	Print to cordinates
+/	prints a string to given cordinates
+*******************************************************/
+void Display::printToCords(int x0, int y0, string str){
+	string name = str;
+	move(y0, x0);
+	printw(str.substr(0, consoleXSize - 4).c_str());
+	if (name.size() > consoleXSize - 4)
+	{
+		name.erase(0, consoleXSize - 4);
+		printToCords(x0, y0 + 1, name);
+	}
 }
 
 /*******************************************************

@@ -20,21 +20,22 @@ int main()
     
     //begeining of game
     disp.drawBorder();
-    disp.printBody(3, 2, "Welcome to game. It is good game!");
-    disp.printBody(3, 4, "Console X size is");
-    disp.printBody(3, 5, to_string( disp.getConsoleXSize() ));
-    disp.printBody(3, 6, "Console Y size is");
-    disp.printBody(3, 7, to_string( disp.getConsoleYSize() ));
+    disp.printBody(2, 1, "Welcome to game. It is good game!");
+    disp.printBody(2, 3, "Console X size is");
+    disp.printBody(2, 4, to_string( disp.getConsoleXSize() ));
+    disp.printBody(2, 5, "Console Y size is");
+    disp.printBody(2, 6, to_string( disp.getConsoleYSize() ));
+    disp.printBody(2, 8, "Text Wrap Test: 1234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890");
 
     while (str != "exit"){ //maingame loop        
         disp.drawBorder();
-        disp.drawHorzLine(disp.getConsoleYSize() - 5);
+        disp.drawHorzLine(disp.getConsoleYSize() - 3);
         
-        str = disp.getInput(3, disp.getConsoleYSize() - 3);
+        str = disp.getInput(2, disp.getConsoleYSize() - 2);
         game.phraseInput(str);
         disp.refresh();
-        disp.printBody(3, 2, game.phraseInput(str));
-        disp.printBody(3, disp.getConsoleYSize() - 7, str);
+        disp.printBody(2, 1, game.phraseInput(str));
+        disp.printBody(2, disp.getConsoleYSize() - 5, str);
     }
     return 0;
 }

@@ -22,7 +22,7 @@ std::string Controler::phraseInput(std::string input){
     
     //dictates what the word means
     if (firstWord == "move") {
-        if (changeDirection(secondWord))
+        if (changeArea(secondWord))
             return "You cannot go there";
     } else if (firstWord == "get") {
         if (moveItemToInventory(secondWord))
@@ -35,18 +35,18 @@ std::string Controler::phraseInput(std::string input){
     }
 }
 /*******************************************************
-/	Draw horizontal line
-/	Simply draws a horizontal line all the way across the	screen.
+/	moveItemToInventory
+/	takes item from area and moves it to inventory
 *******************************************************/
 bool Controler::moveItemToInventory(std::string interactableName){
   return true;
 }
 
 /*******************************************************
-/	Draw horizontal line
+/	
 /	Simply draws a horizontal line all the way across the	screen.
 *******************************************************/
-bool Controler::changeDirection(std::string direction){
+bool Controler::changeArea(std::string direction){
   return true;
 }
 

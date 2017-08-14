@@ -14,7 +14,7 @@ struct interactable{
 	string descLocation;
 };
 
-struct location{
+struct area{
 	string locationDisc;
 	string interactable[5];
 	bool north;

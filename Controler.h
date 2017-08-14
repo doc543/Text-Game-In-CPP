@@ -11,7 +11,7 @@
 class Controler {
     private:
         bool moveItemToInventory(std::string interactableName);
-        bool changeDirection(std::string direction);
+        bool changeArea(std::string direction);
         bool activateInteractable(std::string interactabeName);
     public:
 		std::string phraseInput(std::string input); //returns ture if error, should be used to ask user for input again

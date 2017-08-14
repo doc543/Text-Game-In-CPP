@@ -13,6 +13,7 @@ class Display {
     private:
         int consoleXSize;
 		int consoleYSize;
+		void printToCords(int x0, int y0, std::string str);
     public:
 		Display();
 		~Display();
@@ -26,6 +27,7 @@ class Display {
 		int getConsoleYSize() {return consoleYSize;};
 
 		//setters
+		void printHeader(std::string header);
 		void printBody(int x0, int y0, std::string body);
 		void drawBorder(void);
     	void drawHorzLine(int y0);
