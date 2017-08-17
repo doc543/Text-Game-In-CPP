@@ -1,4 +1,6 @@
 #include "Controler.h"
+#include <string>
+#include "pugixml.hpp"
 
 using namespace std;
 
@@ -22,38 +24,34 @@ std::string Controler::phraseInput(std::string input){
     
     //dictates what the word means
     if (firstWord == "move") {
-        if (changeArea(secondWord))
+        if (changeArea(secondWord)) 
             return "You cannot go there";
     } else if (firstWord == "get") {
-        if (moveItemToInventory(secondWord))
+        if (takeItem(secondWord))
             return "You cannot get that";
     } else if (firstWord == "use") {
-        if (activateInteractable(secondWord))
+        if (combineItems(secondWord, "Placeholder"))
             return "You cannot do that";
     } else {
         return "Wut?";
     }
 }
-/*******************************************************
-/	moveItemToInventory
-/	takes item from area and moves it to inventory
-*******************************************************/
-bool Controler::moveItemToInventory(std::string interactableName){
-  return true;
-}
-
-/*******************************************************
-/	
-/	Simply draws a horizontal line all the way across the	screen.
-*******************************************************/
 bool Controler::changeArea(std::string direction){
-  return true;
-}
+    //compare direction with acceptable values
+    //if there is a 
+}        
+bool Controler::eventSet(std::string eventName){
 
-/*******************************************************
-/	Draw horizontal line
-/	Simply draws a horizontal line all the way across the	screen.
-*******************************************************/
-bool Controler::activateInteractable(std::string interactabeName){
-  return true;
+}
+bool Controler::eventRemove(std::string eventName){
+
+}
+bool Controler::takeItem(std::string item){
+
+}
+bool Controler::loseItem(std::string item){
+
+}
+bool Controler::combineItems(std::string item1, std::string item2){
+
 }
